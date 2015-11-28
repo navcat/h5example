@@ -1,0 +1,97 @@
+/*魔方容器*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+	transform-style: preserve-3d;
+	perspective: 10000px;
+	width: 300px;
+	height: 300px;
+	box-sizing: border-box;
+	position: absolute;
+	left: 50%;
+	top: 25%;
+    margin-left: -150px;
+    margin-right: -150px;
+	animation: animation 8s infinite;
+    perspective-origin: 25% 75%;
+}
+/*魔方的每一个面*/
+.face{
+	box-sizing: border-box;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+}
+/* 旋转X轴90读，向上移动50px*/
+.face-up{
+    transform: translateZ(150px);
+}
+.face-down{
+	transform: translateZ(-150px);
+}
+.face-left{
+    transform: rotateY(-90deg) translateZ(150px);
+}
+.face-right{
+    transform: rotateY(90deg) translateZ(150px);
+}
+.face-front{
+    transform: rotateX(-90deg) translateZ(150px);
+}
+.face-back{
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+/*小方块*/
+.face .row div{
+	width: 90px;
+	height: 90px;
+	float: left;
+	border-radius: 20%;
+	text-align: center;
+	line-height: 100px;
+	font-size: 36px;
+	color: #fff;
+	margin: 5px;
+}
+.face-front .row div{
+    background-color: #66CCFF;
+}
+.face-back .row div{
+    background-color: #FF9999;
+}
+.face-up .row div{
+    background-color: #FFFF99;
+}
+.face-down .row div{
+    background-color: #CCFF33;
+}
+.face-left .row div{
+    background-color: #CC66CC;
+}
+.face-right .row div{
+    background-color: #009999;
+}
+
+
+@keyframes animation {
+    0% {
+        transform: rotateX(45deg) rotateZ(45deg);
+    }
+    25% {
+        transform: rotateX(90deg) rotateY(135deg);
+    }
+    50% {
+        transform: rotateX(180deg) rotateY(225deg);
+    }
+    75% {
+        transform: rotateX(270deg) rotateY(315deg);
+    }
+    100% {
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+}
+
+
