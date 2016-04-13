@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>盒模型及布局</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="container">
+		<!-- 普通盒子模型 -->
+		<h3>普通盒子模型</h3>
+		<div class="box-model box-common">
+			内容区域不包含边框和内边距
+		</div>
+		<hr/>
+
+
+		<!-- 怪异盒子模型 -->
+		<h3>怪异盒子模型</h3>
+		<div class="box-model box-strange">
+			内容区域包含边框和内边距
+		</div>
+		<hr/>
+
+		<!-- column 分栏 -->
+		<h3>column 分栏</h3>
+		<div class="column">
+			<p>
+				4月11日，美团网创始人王兴宣布原猫眼电影CEO沈丽卸任，原大众点评总裁、腾讯副总裁郑志昊接任。这一特点鲜明的举动令人不禁遐想：腾讯系不但以资本方式接管美团，而且可能全方位占据美团核心业务。从资本到资源再到核心人员，腾讯系的强势进入，能给美团带来哪些利好呢？
+
+	美团去阿里拥抱腾讯意图明显
+
+	2016年1月，《华尔街日报》报道称，阿里最终会以9亿美金的价格出售所持7%的美团股份，而“接手人”正是上一轮投资美团点评的的投资团体——腾讯、新加坡淡马锡、DST等。随后，阿里巴巴宣布投资饿了么，被认为是放弃美团的一大佐证。但在这之前，阿里巴巴集团董事局执行副主席蔡崇信在第三财季电话会议上表示，阿里巴巴尚未抛售美团股份，但退出只是时间问题。
+
+	这一系列举动都预示着，美团正在去阿里，而与大众点评完成合并，并吸引腾讯投资，再到如今原腾讯高管成为美团最富有竞争力的猫眼电影的掌舵人，美团去阿里的心思早已经是昭然若揭了。
+			</p>
+		</div>
+		<hr/>
+
+		<!-- 水平分栏 -->
+		<h3>伸缩盒【旧版】</h3>
+		<h5>水平分栏</h5>
+		<div class="flex-box flex-box-hor">
+			<div class="one">one</div>
+			<div class="two">two</div>
+			<div class="three">three</div>
+		</div>
+		<h5>垂直分栏</h5>
+		<div class="flex-box flex-box-ver">
+			<div class="one">one</div>
+			<div class="two">two</div>
+			<div class="three">three</div>
+		</div>
+		<hr/>
+
+		<!-- 垂直分栏 -->
+		<h3>伸缩盒【新版】</h3>
+		<h5>水平分栏</h5>
+		<div class="flex flex-hor">
+			<div class="one">one</div>
+			<div class="two">two</div>
+			<div class="three">three</div>
+		</div>
+		<h5>垂直分栏</h5>
+		<div class="flex flex-ver">
+			<div class="one">one</div>
+			<div class="two">two</div>
+			<div class="three">three</div>
+		</div>
+		<hr/>
+
+		<!-- 旧版盒子的居中对齐 -->
+		<h3>旧版盒子的居中对齐</h3>
+		<div class="flex-box-align">
+			<h3>文字居中</h3>
+		</div>
+	</div>
+</body>
+</html>

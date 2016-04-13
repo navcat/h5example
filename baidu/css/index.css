@@ -1,0 +1,208 @@
+/*
+css reset，同学可以考虑自己写更详细的reset.css,或者是使用开源的reset框架
+https://github.com/thoughtbot/neat
+https://github.com/necolas/normalize.css
+ */
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "microsoft yahei","宋体",Tahoma,Verdana,Arial,Helvetica,sans-serif;
+	background-color: #fff;
+	behavior:url(css/csshover.htc);  /* ie6 */
+}
+.wrapper{
+	position: relative;
+	min-height: 600px;
+	height: 100%;
+	_height: 600px;  /* ie6*/
+}
+
+
+/** 页头部分 */
+header nav{
+	float: right;
+	margin: 19px 0 5px 0;
+}
+header nav ul{
+	list-style-type: none;
+	display: inline;
+	padding-right: 20px;
+}
+header nav ul li{
+	float: left;
+	padding: 0 10px;
+}
+header nav ul a{
+	font-size: 13px;
+	color: #333;
+    line-height: 24px;
+    text-decoration: underline;
+}
+header nav ul .mnav a{
+	font-weight: bold;
+}
+header nav ul a:hover{
+	color: #00c;
+}
+header nav ul .more{
+	background-color: #38f;
+}
+header nav ul .more a{
+	color: #fff;
+}
+header nav ul .more a:hover{
+	color: #fff;
+}
+/*设置下拉*/
+header .set{
+	position: relative;
+	font-size: 13px;
+	_height:24px;
+}
+header .set .menu{
+	display: none;
+	position: absolute;
+	width: 80px;
+	left: -25px;
+	margin-top: -1px;
+	padding-right: 0;
+	padding-top: 10px;
+}
+header .set .menu ol{
+	list-style-type: none;
+	border: 1px solid #ccc;
+}
+header .set .menu li{
+	margin: 0;
+	padding: 4px 0;
+	text-align: center;
+	color: #333;
+	float: none;
+	font-size: 14px;
+}
+header .set .menu li:hover{
+	background-color: #38f;
+	color: #fff;
+}
+header .set:hover .menu{
+	display: block;
+}
+header .set .menu span{
+	position: absolute;
+	left: 50%;
+	top: -10px;
+	margin-left: -10px;
+	width: 0;
+	height: 10px;
+	border-bottom: 10px solid #666;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+}
+
+/** 内容区域 */
+article{
+	text-align: center;
+	padding-top: 5%;
+}
+article img{
+	width: 270px;
+	height: 129px;
+}
+article .form-wrapper{
+	width: 610px;
+	margin: 0 auto;
+}
+article input{
+	float: left;
+	font-size: 15px;
+}
+article .input{
+	width: 500px;
+	height: 34px;
+	border: 1px solid #b6b6b6;
+	border-right-width: 0; 
+	line-height: 34px;
+	padding-left: 5px;
+}
+article .input:hover{
+	border-color: #ccc;
+}
+article .btn{
+	width: 100px;
+	height: 36px;
+	background-color: #3385ff;
+	color: #fff;
+	border-width: 0;
+}
+article .btn:hover{
+	background-color: #317ef3;
+	cursor: pointer;
+}
+
+
+/** 页脚部分 */
+footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.foot-wrapper{
+	width: 610px;
+	margin: 0 auto;
+}
+.foot-wrapper .qrcode,
+.foot-wrapper .copyright{
+	float: left;
+}
+.foot-wrapper .copyright{
+	margin-left: 10px;
+}
+.qrcode .qrcode-item{
+	float: left;
+	margin-left: 5px;
+}
+.qrcode-item .qrcode-img{
+	float: left;
+}
+.qrcode-item .qrcode-text{
+	float: left;
+	padding: 10px 5px;
+}
+.qrcode-item .qrcode-text p{
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+.qrcode-item .qrcode-text span{
+	font-size: 12px;
+	color: #999;
+}
+/*版权信息*/
+.copyright p{
+	font-size: 12px;
+	color: #999;
+}
+.copyright p a{
+	color: #999;
+	margin-left: 5px;
+}
+.copyright .link{
+	margin-left: 55px;
+}
+
+
+/*清除浮动*/
+.clearfix:after{
+	clear:both;
+	display:block;
+	visibility:hidden;
+	height:0;
+	line-height:0;
+	content:'';
+}
+.clearfix{
+	zoom:1;  /*解决ie6/7兼容问题*/
+}

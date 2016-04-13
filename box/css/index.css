@@ -1,0 +1,177 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	max-width: 900px;
+	margin: 0 auto;
+	behavior: url(../css/ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类 */
+}
+hr{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	border-color: #ccc;
+}
+.box-model{
+	width: 150px;
+	height: 150px;
+	border: 5px solid #666;
+	margin: 15px;
+	padding: 10px;
+	background-color: #eee;
+	border-radius: 30px;
+}
+/*普通盒子模型*/
+.box-common{
+	box-sizing: content-box;
+}
+/*怪异盒子模型*/
+.box-strange{
+	box-sizing: border-box;
+}
+/*column 分栏*/
+.column{
+	columns: 4;
+	-webkit-columns: 4;
+	-moz-columns: 4;
+	-ms-columns: 4;
+	-o-columns: 4;
+	/*设置间隙*/
+	column-gap: 20px;
+	-webkit-column-gap: 20px;
+	-moz-column-gap: 20px;
+	-ms-column-gap: 20px;
+	-o-column-gap: 20px;
+	/*设置间隙边框 类似于边框*/
+	column-rule:10px dotted #090;
+	-webkit-column-rule:10px dotted #090;
+	-moz-column-rule:10px dotted #090;
+	-ms-column-rule:10px dotted #090;
+	-o-column-rule:10px dotted #090;
+}
+
+/*伸缩盒【旧版】*/
+
+.flex-box{
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+
+	width: 100%;
+}
+.flex-box div{
+	line-height: 40px;
+	background-color: pink;
+	margin: 5px;
+	box-flex: 1;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-box-flex: 1;
+	-o-box-flex: 1;
+}
+.flex-box .two{
+	box-flex: 3;
+	-webkit-box-flex: 3;
+	-moz-box-flex: 3;
+	-ms-box-flex: 3;
+	-o-box-flex: 3;
+}
+/*水平分栏*/
+.flex-box-hor{
+	/*指定方向*/
+	box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-ms-box-orient: horizontal;
+	-o-box-orient: horizontal;
+}
+/*垂直分栏*/
+.flex-box-ver{
+	height: 400px;
+	/*指定方向*/
+	box-orient: vertical ;
+	-webkit-box-orient: vertical ;
+	-moz-box-orient: vertical ;
+	-ms-box-orient: vertical ;
+	-o-box-orient: vertical ;
+}
+
+
+/*伸缩盒【新版】*/
+.flex{
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+}
+.flex div{
+	line-height: 40px;
+	background-color: orange;
+	margin: 5px;
+	flex: 1;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	-o-flex: 1;
+}
+.flex .two{
+	flex: 3;
+	-webkit-flex: 3;
+	-moz-flex: 3;
+	-ms-flex: 3;
+	-o-flex: 3;
+	/*排序*/
+	order: -1;
+	-webkit-order: -1;
+	-moz-order: -1;
+	-ms-order: -1;
+	-o-order: -1;
+}
+/*水平分栏*/
+.flex-hor{
+	/*指定方向*/
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+}
+/*垂直分栏*/
+.flex-ver{
+	height: 400px;
+	/*指定方向*/
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+}
+
+
+/*旧版盒子的居中对齐*/
+.flex-box-align{
+	width: 600px;
+	height: 300px;
+	background-color: #ccc;
+	border: 1px solid #eee;
+
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+
+	box-align:center;
+	-webkit-box-align:center;
+	-moz-box-align:center;
+	-ms-box-align:center;
+	-o-box-align:center;
+
+	box-pack:center;
+	-webkit-box-pack:center;
+	-moz-box-pack:center;
+	-ms-box-pack:center;
+	-o-box-pack:center;
+}
