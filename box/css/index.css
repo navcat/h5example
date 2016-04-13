@@ -5,7 +5,6 @@
 .container{
 	max-width: 900px;
 	margin: 0 auto;
-	behavior: url(../css/ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类 */
 }
 hr{
 	margin-top: 30px;
