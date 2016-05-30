@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>你开心就好</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		/*魔方外表*/
+		.mof{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: -150px;
+			box-sizing: border-box;
+			opacity: .6;
+
+			transform-style: preserve-3d;
+			perspective: 10000px;
+			perspective-origin: 50% 50%;
+
+			animation: runing 8s linear infinite;
+		}
+		.mof > div{
+			position: absolute;
+			width: 300px;
+			height: 300px;
+		}
+		.mof > div > div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid orange;
+			float: left;
+			box-sizing: border-box;
+		}
+
+		.mof .front{
+		    background-color: #66CCFF;
+		    transform: translateZ(150px);
+		}
+		.mof .back{
+		    background-color: #FF9999;
+		    transform: translateZ(-150px);
+		}
+		.mof .up{
+		    background-color: #FFFF99;
+		    transform: rotateX(90deg) translateZ(150px);
+		}
+		.mof .down{
+		    background-color: #CCFF33;
+		    transform: rotateX(90deg) translateZ(-150px);
+		}
+		.mof .left{
+		    background-color: #CC66CC;
+		    transform: rotateY(90deg) translateZ(-150px);
+		}
+		.mof .right{
+		    background-color: #009999;
+		    transform: rotateY(90deg) translateZ(150px);
+		}
+
+		@keyframes runing{
+			from{
+				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			}
+			to{
+				transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+			}
+		}
+
+		.mof-img{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -50px;
+			margin-top: -50px;
+
+			box-sizing: border-box;
+			transform-style: preserve-3d;
+			perspective: 10000px;
+			perspective-origin: 50% 50%;
+
+			animation: runing 8s linear infinite;
+		}
+
+		.mof-img div{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			opacity: .5;
+			color: #fff;
+			line-height: 100px;
+			font-size: 36px;
+			text-align: center;
+			font-weight: bolder;
+		}
+
+		.mof-img .front{
+		    background-color: #f00;
+		    transform: translateZ(50px);
+		}
+		.mof-img .back{
+		    background-color: #f00;
+		    transform: translateZ(-50px);
+		}
+		.mof-img .up{
+		    background-color: #f00;
+		    transform: rotateX(90deg) translateZ(50px);
+		}
+		.mof-img .down{
+		    background-color: #f00;
+		    transform: rotateX(90deg) translateZ(-50px);
+		}
+		.mof-img .left{
+		    background-color: #f00;
+		    transform: rotateY(90deg) translateZ(-50px);
+		}
+		.mof-img .right{
+		    background-color: #f00;
+		    transform: rotateY(90deg) translateZ(50px);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="mof">
+		<div class="up">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="down">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="left">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="right">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="front">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="back">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+	<div class="mof-img">
+		<div class="up">排</div>
+		<div class="down">骨</div>
+		<div class="left">你</div>
+		<div class="right">个</div>
+		<div class="front">1</div>
+		<div class="back">1</div>
+	</div>
+</body>
+</html>
