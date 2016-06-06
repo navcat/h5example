@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 600px;
+	overflow: hidden;
+}
+.img-list {
+	width: 3000px;
+	position: relative;
+}
+.img-list img{
+	height: 200px;
+	width: 150px;
+	float: left;
+}
