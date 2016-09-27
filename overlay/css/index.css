@@ -1,0 +1,24 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.overlay{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	background-color: rgba(0,0,0,0.3);
+}
+.overlay .daillog{
+	width: 600px;
+	height: 450px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -225px;
+	background-color: #0f0;
+	border: 1px solid #ddd;
+}
