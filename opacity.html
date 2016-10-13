@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>背景透明，文字不透明</title>
+    <style type="text/css">
+        .container{
+            position: relative;
+            width: 600px;
+            height: 300px;
+            border: 1px solid #0f0;
+        }
+        .opcacity{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 178px;
+            height: 143px;
+            background:#000;
+            opacity: .3;
+            color: #f00;
+            text-align: center;
+        }
+        .common{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 178px;
+            height: 143px;
+            background:#000;
+            filter: alpha(opacity=0.3);
+            background:rgba(0, 0, 0, 0.3) none repeat scroll 0 0 !important;
+            color: #f00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>opcacity</h1>
+    <div class="container">
+        背景下的文字
+        <div class="opcacity">
+            这里是文字
+        </div>
+    </div>
+
+    <h1>grb</h1>
+    <div class="container">
+        背景下的文字
+        <div class="common">
+            这里是文字
+        </div>
+    </div>
+    参考链接：http://www.admin10000.com/Document/31.html
+</body>
+</html>
