@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Flex direction</title>
+	<style type="text/css" media="screen">
+		/* row */
+		.row{
+			display: flex;
+		}
+		.row div{
+			width: 60px;
+			background-color: #f00;
+			border: 2px solid #fff;
+			text-align: center;
+		}
+		.row-reverse{
+			flex-direction: row-reverse;
+		}
+		.column{
+			flex-direction: column;
+		}
+		.column-reverse{
+			flex-direction: column-reverse;
+		}
+	</style>
+</head>
+<body>
+	<h5>row</h5>
+	<div class="row">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</div>
+	<h5>row reverse</h5>
+	<div class="row row-reverse">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</div>
+	<h5>column</h5>
+	<div class="row column">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</div>
+	<h5>colunm reverse</h5>
+	<div class="row column column-reverse">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</div>
+</body>
+</html>
