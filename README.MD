@@ -11,8 +11,15 @@
 ```
 
 ### 安装依赖
+
+#### babel 转换器
 $ npm install --save-dev babel-preset-es2015
+
+#### babel 客户端
 $ npm install --global babel-cli
+提供一个支持ES6的REPL环境，从控制台输入babel-node，可进行es6代码的编写和运行
+
+#### babel 语法检测
 $ npm install --save-dev eslint babel-eslint
 
 ### 执行es6的转换
