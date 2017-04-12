@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-if & v-show</title>
+	<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<div v-on:click='onClicked'>
+			点击菜单
+			<i v-if="isDown" class="glyphicon glyphicon-chevron-down"></i>
+			<i class="glyphicon glyphicon-chevron-up" v-else></i>
+		</div>
+		<ul v-show="!isDown">
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+			<li>菜单5</li>
+		</ul>
+	</div>
+	<script src="../plugins/jquery-1.11.3.min.js"></script>
+	<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				isDown: true
+			},
+			methods: {
+				onClicked: function(){
+					this.isDown = !this.isDown;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

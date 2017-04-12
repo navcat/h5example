@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue.js</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div id="app">
+        <!-- 显示文字  使用v-once 属性后将不会被改变-->
+        <h3 v-bind:title="message">{{ message }}</h3>
+        <!-- 显示html文字 -->
+
+        <div>
+            {{ html }}
+        </div>
+
+        <!-- 解析html后显示 -->
+        <div v-html="html">
+        </div>
+
+        <!-- 计算表达式 -->
+        <div>
+            {{ number+ 1}}
+        </div>
+
+        <small v-if="seen">你看见了</small>
+
+        <!-- 使用for循环 -->
+        <ul v-for="item of todos">
+            <li>{{ item.text }}</li>
+        </ul>
+
+        <!-- 打散文字/绑定事件 -->
+        <button type="button" v-on:click="splitMessage"> 打散文字 </button>
+
+        <!-- model -->
+        <input type="text" name="message" v-model="message">
+
+        <!-- components -->
+        <ol>
+            <todo-item v-for="item of groceryList" v-bind:todo="item"></todo-item>
+        </ol>
+
+        <!-- computed -->
+        <div>
+            当前时间是： {{ nowTime }}
+        </div>
+        <!-- for迭代对象 -->
+        <ul v-for="value in john">
+            <li>{{ value }}</li>
+        </ul>
+        <ul v-for="(v , k) in john">
+            <li>{{ k }}:  {{ v }}</li>
+        </ul>
+        <h5>$key的使用</h5>
+        <ul v-for="value in john">
+            <li>{{ $keyTitles[$key] }}:  {{ value }}</li>
+        </ul>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        // 定义一个组件
+        Vue.component('todo-item', {
+            // todo-item 组件现在接受一个
+            // "prop"，类似于一个自定义属性
+            // 这个属性名为 todo。
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        });
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello Vue!',
+                html: '<strong>Hello Vue!</strong>',
+                seen: true,
+                number: 1,
+                todos: [
+                    {text: '学习基础'},
+                    {text: '实战'},
+                    {text: '实战2'},
+                ],
+                groceryList: [
+                  { text: '蔬菜' },
+                  { text: '奶酪' },
+                  { text: '随便其他什么人吃的东西' }
+                ],
+                john: {
+                  FirstName: 'John',
+                  LastName: 'Doe',
+                  Age: 30
+                }
+            },
+            methods: {
+                /**
+                 * 将文字打散
+                 */
+                splitMessage: function(){
+                    this.message = this.message.split('').join('  ');
+                }
+
+            },
+            computed: {
+                nowTime: function(){
+                    return new Date();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
