@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>filter</title>
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <h3>实现搜索</h3>
+        <input type="text" name="name" placeholder="输入名称搜索" v-model="name">
+        <p class="text-muted">正在搜索 {{ name }} ...</p>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in searchUsers">
+              <th scope="row">{{ index+1 }}</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.age }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>实现排序</h3>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Age
+                <a href="javascript:;" @click="onAgeSort">
+                  <i v-show="!isAsc" class="glyphicon glyphicon-chevron-down"></i>
+                  <i v-show="isAsc" class="glyphicon glyphicon-chevron-up"></i>
+                </a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in orderByAge">
+              <th scope="row">{{ index+1 }}</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.age }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <script src="../plugins/jquery-1.11.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               name: '',
+               isAsc: false,    // 是否升序排列
+               users: [
+                  {
+                    name: 'Micheal',
+                    age: 24
+                  }, {
+                    name: 'Jack',
+                    age: 17
+                  }, {
+                    name: 'Tiffany',
+                    age: 23
+                  }, {
+                    name: 'Alice',
+                    age: 9
+                  }, {
+                    name: 'Dannis',
+                    age: 42
+                  }, {
+                    name: 'Greg',
+                    age: 36
+                  }, {
+                    name: 'Pearl',
+                    age: 3
+                  }, {
+                    name: 'David',
+                    age: 5
+                  }, {
+                    name: 'Bob',
+                    age: 4
+                  }, {
+                    name: 'Johnson',
+                    age: 1
+                  }
+                ]
+            },
+            computed: {
+                /**
+                 * 查询用户
+                 */
+                searchUsers: function(){
+                    var self = this;
+                    return self.users.filter(function(user){
+                        return user.name.toLowerCase().indexOf(self.name.toLowerCase()) > -1;
+                    })
+                },
+                /**
+                 * 按年龄排序
+                 */
+                orderByAge: function(){
+                    var self = this;
+                    return self.users.sort(function(u1, u2){
+                        // 升序排列
+                        if(self.isAsc){
+                            return u1.age < u2.age;
+                        }else{
+                            return u1.age > u2.age;
+                        }
+                    })
+                }
+            },
+            methods:{
+                /**
+                 * 按年龄排序
+                 */
+                onAgeSort: function(){
+                    this.isAsc = !this.isAsc;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
