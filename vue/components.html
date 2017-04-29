@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>components</title>
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h3>子组件将数据传回父组件</h3>
+        <div id="counter-event-example">
+            <p>{{ total }}</p>
+            <button-counter v-on:increment="incrementTotal"></button-counter>
+            <button-counter v-on:increment="incrementTotal"></button-counter>
+            <br>
+            <button-counter></button-counter>
+        </div>
+
+        <h3>data属性测试</h3>
+        <div id="example-2">
+            <simple-counter></simple-counter>
+            <simple-counter></simple-counter>
+            <simple-counter></simple-counter>
+        </div>
+
+        <h3>使用 Prop 传递数据</h3>
+        <div id="example-3">
+            <child message="hello!" my-msg="Vue js!"></child>
+
+            <h4>实现动态绑定</h4>
+            <div>
+                <input v-model="parentMsg">
+                <br>
+                <child v-bind:my-msg="parentMsg"></child>
+            </div>
+        </div>
+    </div>
+    <script src="../plugins/jquery-1.11.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <!-- 子组件将数据传回父组件 -->
+    <script>
+        Vue.component('button-counter', {
+            template: '<button v-on:click="increment">{{ counter }}</button>',
+            data: function() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increment: function() {
+                    this.counter += 1
+                    // 触发incrementTotal
+                    this.$emit('increment')
+                    console.log('in increment')
+                }
+            },
+        })
+        new Vue({
+            el: '#counter-event-example',
+            data: {
+                total: 0
+            },
+            methods: {
+                incrementTotal: function() {
+                    this.total += 1
+                    console.log('in incrementTotal')
+                }
+            }
+        })
+    </script>
+    <!-- data属性测试 -->
+    <script>
+        Vue.component('simple-counter', {
+          template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+          // 技术上 data 的确是一个函数了，因此 Vue 不会警告，
+          // 但是我们返回给每个组件的实例的却引用了同一个data对象
+          data: function () {
+            return { counter: 0 }
+          }
+        })
+        new Vue({
+          el: '#example-2'
+        })
+    </script>
+    <!-- 使用 Prop 传递数据 -->
+    <script>
+        Vue.component('child', {
+            // 声明 props
+            props: ['message', 'myMsg'],
+            // 就像 data 一样，prop 可以用在模板内
+            // 同样也可以在 vm 实例中像 “this.message” 这样使用
+            template: `<div><span>{{ message }}</span>
+            <br/>
+            <span>{{ myMsg }}</span></div>`
+        })
+        new Vue({
+            el: '#example-3',
+            data: {
+                parentMsg: ''
+            }
+        })
+    </script>
+</body>
+
+</html>
