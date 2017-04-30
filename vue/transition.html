@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Transition </title>
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <style type="text/css">
+        .fade-enter-active, .fade-leave-active {
+          transition: opacity .5s
+        }
+        .fade-enter, .fade-leave-active {
+          opacity: 0
+        }
+
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        .slide-fade-enter-active {
+          transition: all .3s ease;
+        }
+        .slide-fade-leave-active {
+          transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+        .slide-fade-enter, .slide-fade-leave-active {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        /* 3 */
+        .bounce-enter-active {
+          animation: bounce-in .5s;
+        }
+        .bounce-leave-active {
+          animation: bounce-out .5s;
+        }
+        @keyframes bounce-in {
+          0% {
+            transform: scale(0);
+          }
+          50% {
+            transform: scale(1.5);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        @keyframes bounce-out {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.5);
+          }
+          100% {
+            transform: scale(0);
+          }
+        }
+        /* 4 */
+        .component-fade-enter-active, .component-fade-leave-active {
+          transition: opacity .3s ease;
+        }
+        .component-fade-enter, .component-fade-leave-active {
+          opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h3>过渡的CSS类名</h3>
+        <div id="example-1">
+            <button v-on:click="show = !show">
+                Toggle
+            </button>
+            <transition name="fade">
+                <p v-if="show">{{ messages }}</p>
+            </transition>
+        </div>
+
+        <h3>CSS-过渡</h3>
+        <div id="example-2">
+            <button v-on:click="show = !show">
+                Toggle
+            </button>
+            <transition name="slide-fade">
+                <p v-if="show">{{ messages }}</p>
+            </transition>
+        </div>
+
+        <h3>CSS-动画</h3>
+        <div id="example-3">
+            <button v-on:click="show = !show">
+                Toggle
+            </button>
+            <transition name="bounce">
+                <p v-if="show">{{ messages }}</p>
+            </transition>
+        </div>
+
+        <h3>多个组件的过渡</h3>
+        <div id="example-4">
+            <button v-on:click="view === 'v-a'? view='v-b': view='v-a'">
+                Toggle
+            </button>
+            <transition name="component-fade" mode="out-in">
+              <component v-bind:is="view"></component>
+            </transition>
+        </div>
+    </div>
+    <script src="../plugins/jquery-1.11.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <!-- 过渡的CSS类名 -->
+    <script>
+        var vm = new Vue({
+            el: '#example-1',
+            data: {
+                show: true,
+                messages: 'this is a message'
+            },
+        })
+    </script>
+    <!-- CSS-过渡 -->
+    <script>
+        var vm = new Vue({
+            el: '#example-2',
+            data: {
+                show: true,
+                messages: 'this is a slide fade'
+            },
+        })
+    </script>
+    <!-- CSS-动画 -->
+    <script>
+        var vm = new Vue({
+            el: '#example-3',
+            data: {
+                show: true,
+                messages: 'this is a bounce'
+            },
+        })
+    </script>
+    <!-- 多个组件的过渡 -->
+    <script>
+        var vm = new Vue({
+            el: '#example-4',
+            data: {
+                view: 'v-a'
+            },
+            components: {
+                'v-a': {
+                  template: '<div>Component A</div>'
+                },
+                'v-b': {
+                  template: '<div>Component B</div>'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
