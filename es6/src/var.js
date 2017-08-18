@@ -26,6 +26,7 @@ let[m, n, ...mm] = ['a'];
 // console.log(n);     // undefined
 // console.log(mm);    // []
 
+
 /// 不完全解构
 let [x1, y1] = [1, 2, 3]
 // console.log(x1);    // 1

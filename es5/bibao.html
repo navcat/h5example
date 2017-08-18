@@ -32,6 +32,29 @@
 					}
 				})(i);
 			}
+
+			// 闭包2
+			for(var i = 0; i < 5; i++){
+				(function(i){
+					setTimeout(function(){
+						console.log(i)
+					}, 1000)
+				})(i);
+			}
+
+			// 作用域
+			function field_test(){
+				console.log(a);		// undefined
+				var a;
+			}
+			field_test();
+
+			function field_test_2(){
+				console.log(a);		// ReferenceError
+				let a;
+			}
+			field_test_2();
+
 		})
 	</script>
 </body>
