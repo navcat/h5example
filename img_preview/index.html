@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>图片预览</title>
+    <style type="text/css" media="screen">
+        form{
+            float: left;
+            width: 50%;
+        }
+        ul{
+            display: inline;
+        }
+        ul li {
+            list-style: none;
+            float: left;
+        }
+        ul li img{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用window.URL进行预览 -->
+    <form action="." method="get" accept-charset="utf-8">
+        <h3>使用window.URL进行预览</h3>
+        <input type="file" id="file" name="" value="" placeholder="" multiple="">
+        <p>
+            <h5>预览</h5>
+        </p>
+    </form>
+    <!-- // 使用window.URL进行预览 -->
+    <!-- 使用FileReader进行预览 -->
+    <form action="." method="get" accept-charset="utf-8">
+        <h3>使用FileReader进行预览</h3>
+        <input type="file" id="file2" name="" value="" placeholder="" multiple>
+        <p>
+            <h5>预览</h5>
+        </p>
+    </form>
+    <!-- // 使用FileReader进行预览 -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 使用window.URL进行预览
+            $("#file").on('change', function(){
+                var self = $(this),
+                    files = self.get(0).files,
+                    dom = $("<ul/>");
+                for(var i = 0; i< files.length; i++){
+                    var url = window.URL.createObjectURL(files[i]);
+                    // 构建img
+                    dom.append($("<li/>").append($('<img/>').attr('src', url)));
+                }
+                // 添加到dom
+                dom.appendTo(self.parent());
+            });
+            // 使用FileReader进行预览
+            $("#file2").on('change', function(){
+                var self = $(this),
+                    files = self.get(0).files,
+                    dom = $("<ul/>");
+                for(var i = 0; i< files.length; i++){
+                    // 使用闭包生成图片
+                    (function(file){
+                        var reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onload = function () {
+                            var res = reader.result;
+                            // 构建img
+                            dom.append($("<li/>").append($('<img/>').attr('src', res)));
+                        }
+                    })(files[i]);
+                }
+                // 添加到dom
+                dom.appendTo(self.parent());
+            });
+            // form.file
+            // form.files
+            console.log($("#file")[0])
+            console.log($("#file").eq(0)[0])
+            console.log($("#file").get(0))
+            console.log(document.getElementById("file"))
+            // $("#file")[0]  == document.getElementById("file")
+        })
+    </script>
+</body>
+</html>
