@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h3>严格模式和非严格模式下的 闭包对比</h3>
+	<script type="text/javascript">
+		"use strict";
+		console.log(this);		// window
+	</script>
+	<script type="text/javascript">
+		"use strict";
+		function test(){
+			console.log(this);		// undefined
+		}
+		test();
+	</script>
+	<script type="text/javascript">
+		// 闭包测试 【严格模式】
+		(function(){
+			"use strict";
+			console.log('------------严格模式下-----------------');
+			console.log(this);				// undefined
+			(function(){
+				var a = b =1;
+			})();
+			// 注意顺序，如果b在a下面打印，则无法打印
+			console.log('b is ?' + b);		// ReferenceError: b is not defined
+			console.log('a is ?' + a);
+		})();
+	</script>
+	<script type="text/javascript">
+		console.log('------------非严格模式下-----------------');
+		console.log(this);			// window
+		// 闭包测试 【非严格模式】
+		(function(){
+			var a = b =1;
+		})();
+		// 注意顺序，如果b在a下面打印，则无法打印
+		console.log('b is' + b);		// b is 1
+		console.log('a is' + a);		// ReferenceError: b is not defined
+	</script>
+
+</body>
+</html>

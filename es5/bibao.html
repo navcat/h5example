@@ -55,7 +55,16 @@
 			}
 			field_test_2();
 
-		})
+		});
+
+	</script>
+	<script type="text/javascript">
+		// 闭包测试1
+		(function(){
+			var a = b =1;
+		})();
+		console.log('a is' + a)
+		console.log('b is' + b)
 	</script>
 </body>
 </html>
