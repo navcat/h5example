@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>检测是否已开启调试模式</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <p>
+        利用的是div元素中的id属性，当div元素被发送至控制台（例如console.log(div)）时，浏览器会自动尝试获取其中的元素id。如果代码在调用了console.log之后又调用了getter方法，说明控制台当前正在运行。
+    </p>
+    <div id="show">
+        
+    </div>
+    
+    <script>
+        let div = document.createElement('div');
+
+        let loop = setInterval(() => {
+            console.log(div);
+            console.clear();
+        });
+
+        Object.defineProperty(div,"id", {get: () => {
+            clearInterval(loop);
+            document.getElementById("show").innerText = '调试模式已经开启'
+            alert("Dev Tools detected!");
+
+        }});
+    </script>
+</body>
+</html>
