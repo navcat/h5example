@@ -23,8 +23,8 @@
 
 let p3 = new Promise(function(resolve, reject){
 	setTimeout( () => {
-		resolve(' p3 resolve')
-		// reject(' p3 reject')
+		// resolve(' p3 resolve')
+		reject(' p3 reject')
 	}, 2000)
 })
 p3.then(rest => {
@@ -39,7 +39,7 @@ p3.then(rest => {
 })
 .catch(err =>{
 	console.log('error  ' + err)
-	return err
+	return 'false'
 })
 .then(rest => {
 	console.log(rest)
