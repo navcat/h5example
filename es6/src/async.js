@@ -23,8 +23,8 @@
 
 let p3 = new Promise(function(resolve, reject){
 	setTimeout( () => {
-		// resolve(' p3 resolve')
-		reject(' p3 reject')
+		resolve(' p3 resolve')
+		// reject(' p3 reject')
 	}, 2000)
 })
 p3.then(rest => {
